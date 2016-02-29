@@ -59,5 +59,24 @@ describe Note do
     
   end                           # Note.parse
 
+  describe "Note#eql?" do
+    describe "when neither note has an octave" do
+    it "compares latter and sign" do
+      n1 = Note.new(:E, :flat)
+      n2 = Note.new(:E, :flat)
+      expect(n1.eql?(n2)).to be(true)
+      expect(n1).to eq(n2)
+    end
+    end
 
+    describe "when both notes have the same octave" do
+      it "compares letter, sign and octave" do
+        n1 = Note.new(:E, :flat, 2)
+        n2 = Note.new(:E, :flat, 2)
+        expect(n1.eql?(n2)).to be(true)
+        expect(n1).to eq(n2)
+      end
+    end
+  end
+      
 end

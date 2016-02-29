@@ -36,6 +36,7 @@ class Interval
     minor3: Interval.new( 3, 3, :minor),
     major3: Interval.new( 4, 3, :major),
     fourth: Interval.new( 5, 4),
+    sus4:   Interval.new( 5, 4),
     flat5:  Interval.new( 6, 5, :flat),
     fifth:  Interval.new( 7, 5),
     minor6: Interval.new( 8, 6, :minor),
