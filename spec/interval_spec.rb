@@ -13,4 +13,11 @@ describe Interval do
       expect(Interval[:flat5].degree).to eq(5)
     end
   end
+
+  describe "Interval#of" do
+    it "returns the interval" do
+      expect(Interval.of(0)).to eq(Interval[:unison])
+      expect(Interval.of(1)).to eq(Interval[:minor2])
+    end
+  end
 end

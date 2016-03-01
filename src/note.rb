@@ -1,5 +1,5 @@
 class Note
-  attr_reader :letter, :octave, :sign
+  attr_reader :letter, :octave, :sign, :chromatic_index
   
   @@Letters = [:A, :B, :C, :D, :E, :F, :G].freeze
   #TODO Add double-flat and double-sharp
@@ -66,6 +66,9 @@ class Note
              octave)
   end
 
+  def -(note)
+    Interval.of((chromatic_index - note.chromatic_index) % 12)
+  end
   
   def hash
     letter.hash ^ sign.hash ^ octave.hash

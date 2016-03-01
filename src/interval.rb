@@ -20,13 +20,12 @@ class Interval
     semitones <=> otherInterval.semitones
   end
 
-
   def self.[](sym)
     @@intervals[sym]
   end
 
-  def self.[]=(sym, interval)
-    @@intervals[sym]=interval
+  def self.of(semitones)
+    @@by_semitones[semitones]
   end
 
   @@intervals = {
@@ -45,6 +44,11 @@ class Interval
     minor7: Interval.new(10, 7),
     major7: Interval.new(11, 7, :major),
     octave: Interval.new(12, 8)}
+
+  @@by_semitones = (0..12).map {|n| nil}
+  @@intervals.values.each { |interval| @@by_semitones[interval.semitones] ||= interval}
+    
+
 
 end
 

@@ -13,3 +13,7 @@ puts "Guitar strings are #{GUITAR.strings.map(&:to_s).join(', ')}"
 chord = Chord.new(Note.new(:A),  AbstractChord[:min7b5])
 puts "#{chord} is #{chord.notes.map(&:to_s)}"
 
+
+puts GUITAR.chord_choices(Chord.new(Note.new(:E), AbstractChord[:major]))
+
+
