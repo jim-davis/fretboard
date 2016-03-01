@@ -1,11 +1,11 @@
-require 'chord'
+require 'abstract_chord'
 require 'interval'
 
-Chord[:major] = Chord.new(:major3, :fifth)
-Chord[:minor] = Chord.new(:minor3, :fifth)
+AbstractChord[:major] = AbstractChord.new(:major3, :fifth)
+AbstractChord[:minor] = AbstractChord.new(:minor3, :fifth)
 
-Chord[:minor7] = Chord.new(:minor3, :fifth, :dom7)
-Chord[:dom7] = Chord.new(:major3, :fifth, :dom7)
-Chord[:major7] = Chord.new(:major3, :fifth, :major7)
+AbstractChord[:minor7] = AbstractChord.new(:minor3, :fifth, :dom7)
+AbstractChord[:dom7] = AbstractChord.new(:major3, :fifth, :dom7)
+AbstractChord[:major7] = AbstractChord.new(:major3, :fifth, :major7)
 
-Chord[:min7b5] = Chord.new(:minor3, :flat5, :dom7)
+AbstractChord[:min7b5] = AbstractChord.new(:minor3, :flat5, :dom7)

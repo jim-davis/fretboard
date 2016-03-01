@@ -2,24 +2,13 @@ require 'note'
 require 'interval'
 
 class Chord
-  @chords = Hash.new
 
-  def initialize(*intervals)
-    @intervals = intervals.map {|name| Interval[name]}
+  def initialize(root, abstract_chord)
+    @root = root
+    @abstract_chord = abstract_chord
+    @notes = [root] + abstract_chord.intervals.map {|interval| root.add(interval) }
   end
 
-  def self.[](name)
-    @chords[name]
-  end
-
-  def self.[]=(name, v)
-    @chords[name] = v
-  end
-
-  def notes(root)
-    [root] + intervals.map {|interval| root.add(interval) }
-  end
-
-  attr_reader :intervals
+  attr_reader :note, :abstract_chord, :notes
 
 end
