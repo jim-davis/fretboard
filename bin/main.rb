@@ -14,6 +14,23 @@ chord = Chord.new(Note.new(:A),  AbstractChord[:min7b5])
 puts "#{chord} is #{chord.notes.map(&:to_s)}"
 
 
-puts GUITAR.chord_choices(Chord.new(Note.new(:E), AbstractChord[:major]))
+#puts GUITAR.chord_choices(Chord.new(Note.new(:E), AbstractChord[:major]))
+
+cdom7 = Chord.new(Note.new(:C),  AbstractChord[:dom7])
+
+require 'voicing'
+require 'fingering'
+
+v = Voicing.new(GUITAR, cdom7,
+                [VoicingString.new(Fingering.new(1, 0), "3"),
+                 VoicingString.new(Fingering.new(2, 3, 2), "R" ),
+                 VoicingString.new(Fingering.new(3, 2, 3), "3"),
+                 VoicingString.new(Fingering.new(4, 3, 4), "7"),
+                 VoicingString.new(Fingering.new(5, 1, 1), "R"),
+                 VoicingString.new(Fingering.new(6, 0, nil), "3")])
+
+puts v.asciirows()
+
+
 
 
